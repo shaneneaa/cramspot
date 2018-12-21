@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { HomePage } from './home.page';
+import { HomeModalPage } from "../home-modal/home-modal.page";
 
 const routes: Routes = [
   {
@@ -15,12 +16,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents: [HomeModalPage],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,HomeModalPage],
 })
 export class HomePageModule {}

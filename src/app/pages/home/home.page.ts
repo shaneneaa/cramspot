@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { ModalController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { HomeModalPage } from "../home-modal/home-modal.page";
@@ -20,9 +19,7 @@ export class HomePage implements OnInit {
     private alertController: AlertController,
     private workspaceService: WorkspaceService,
     private notificationService: NotificationService
-    ){
-
-  }
+    ){ }
 
   ngOnInit(){
     this.loadWorkspace(); 
@@ -47,7 +44,6 @@ export class HomePage implements OnInit {
   }
 
   async presentModal() {
-    console.log('shabu');
     const modal = await this.modalController.create({
       component: HomeModalPage,
       componentProps: { value: 123 }
