@@ -40,13 +40,8 @@ export class AppComponent {
   public appPagesMore = [
     {
       title: 'How it Works',
-      url: '/account',
+      url: '/how-it-works',
       icon: 'settings'
-    },
-    {
-      title: 'Help Center',
-      url: '/feed',
-      icon: 'help'
     },
     {
       title: 'About',
@@ -54,7 +49,7 @@ export class AppComponent {
       icon: 'information-circle-outline'
     },
     {
-      title: 'Privacy',
+      title: 'Privacy Policy',
       url: '/notification',
       icon: 'lock'
     },

@@ -5,24 +5,22 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FeedPage } from './feed.page';
-import { FeedModalPage } from "../feed-modal/feed-modal.page";
+import { HowItWorksPage } from './how-it-works.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: FeedPage
+    component: HowItWorksPage
   }
 ];
 
 @NgModule({
-  entryComponents: [ FeedModalPage ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [FeedPage]
+  declarations: [HowItWorksPage]
 })
-export class FeedPageModule {}
+export class HowItWorksPageModule {}

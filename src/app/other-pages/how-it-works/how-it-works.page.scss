@@ -1,4 +1,16 @@
 
+  .bg-img{
+    background-image: url('/assets/img/header1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+.logo-title{
+    width: 128px;
+
+}
+
 .ion-color-main {
     --ion-color-base: rgb(144, 61, 96);
     --ion-color-base-rgb: 144, 61, 96;

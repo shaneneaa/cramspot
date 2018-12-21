@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'feed-modal', loadChildren: './pages/feed-modal/feed-modal.module#FeedModalPageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
-  { path: 'payment', loadChildren: './pages/payment/payment.module#PaymentPageModule' }
+  { path: 'payment', loadChildren: './pages/payment/payment.module#PaymentPageModule' },  { path: 'how-it-works', loadChildren: './other-pages/how-it-works/how-it-works.module#HowItWorksPageModule' }
+
 ];
 
 @NgModule({
