@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Feed</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-card >
+    <form #f="ngForm" (ngSubmit)="post(f)">
+      <ion-textarea ngModel name="message"  placeholder="Post Something here..."></ion-textarea>
+      <ion-button float-right type="submit" color="main" >Post</ion-button>
+    </form> 
+  </ion-card>
+  
+  <ion-list *ngFor="let f of feeds">
+      <ion-item  (click)="presentModal(f)">
+          <ion-label >
+              <h2 style="font-weight:bold">{{ f?.message }}</h2>
+              <p >{{ f?.date_added}} </p> 
+              <p style="color:#903d62; text-align: end" (click)="presentModal(f)">Suggest <ion-icon name="play"></ion-icon></p> 
+            </ion-label>
+      </ion-item>
+     
+    </ion-list>
+  
+
+</ion-content>

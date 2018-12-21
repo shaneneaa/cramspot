@@ -1,0 +1,27 @@
+<ion-content padding>
+
+    <br>
+    <ion-img class="logo-title" src="assets/icon/cramspotlogo.png"></ion-img>
+    
+     
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <br>
+            <br>
+            <ion-label position="stacked">Email</ion-label>
+            <ion-item class="input-style">
+                <ion-input clearInput ngModel name="email" required></ion-input>
+            </ion-item>   
+            <br>
+            <ion-label position="stacked">Password</ion-label>
+            <ion-item class="input-style">
+                <ion-input clearInput type="password" ngModel name="password" required></ion-input>
+            </ion-item>   
+            <br>
+            <br>
+            <ion-button type="submit" color="main" expand="block" shape="round">Log in</ion-button>
+        </form>
+      <p text-center>Don't have an account?  
+          <a href="/register" style="color: rgb(144, 61, 96); text-decoration: none">Sign Up</a> </p>
+    
+    </ion-content>
+    

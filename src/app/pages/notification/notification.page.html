@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Notification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+    <ion-list *ngFor="let n of notifications">
+        <ion-item  (click)="alertAvailability(n)">
+            <ion-label >
+                <h2 style="font-weight:bold">
+                  <span *ngIf="n.type==1"> You have workspace availability request</span>
+                  <span *ngIf="n.type==2"> Response to your request</span>
+                  <span *ngIf="n.type==3"> You have new suggested a workspace</span></h2>
+                  <p>{{ n?.date_created}} </p>
+                <p style="color:#903d62; text-align: end" (click)="alertAvailability(n)">Response <span style="font-weight:bold">></span></p> 
+              </ion-label>
+        </ion-item>
+       
+      </ion-list>
+   
+</ion-content>

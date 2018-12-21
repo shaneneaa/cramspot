@@ -11,17 +11,59 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent {
   public appPages = [
     {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
+      title: 'My account',
+      url: '/account',
+      icon: 'person'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+      title: 'Browse workspace',
+      url: '/home',
+      icon: 'search'
+    },
+    {
+      title: 'Feed',
+      url: '/feed',
+      icon: 'paper'
+    },
+    {
+      title: 'Notifications',
+      url: '/notification',
+      icon: 'notifications'
+    },
+    {
+      title: 'Logout',
+      url: '/login',
+      icon: 'power'
     }
   ];
 
+  public appPagesMore = [
+    {
+      title: 'How it Works',
+      url: '/account',
+      icon: 'settings'
+    },
+    {
+      title: 'Help Center',
+      url: '/feed',
+      icon: 'help'
+    },
+    {
+      title: 'About',
+      url: '/notification',
+      icon: 'information-circle-outline'
+    },
+    {
+      title: 'Privacy',
+      url: '/notification',
+      icon: 'lock'
+    },
+    {
+      title: 'Contact Us',
+      url: '/notification',
+      icon: 'call'
+    }
+  ];
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
