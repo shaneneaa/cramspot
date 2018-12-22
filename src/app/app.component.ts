@@ -45,7 +45,7 @@ export class AppComponent {
     },
     {
       title: 'About',
-      url: '/notification',
+      url: '/about',
       icon: 'information-circle-outline'
     },
     {
