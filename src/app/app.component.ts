@@ -50,12 +50,12 @@ export class AppComponent {
     },
     {
       title: 'Privacy Policy',
-      url: '/notification',
+      url: '/privacy-policy',
       icon: 'lock'
     },
     {
       title: 'Contact Us',
-      url: '/notification',
+      url: '/contactus',
       icon: 'call'
     }
   ];
