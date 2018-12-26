@@ -1,0 +1,48 @@
+
+  .bg-img{
+    background-image: url('/assets/img/profile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+.logo-title{
+    width: 128px;
+
+
+}
+
+ion-header {
+    display: none;
+}
+
+/* Show background if class is active */
+.show-toolbar {
+    display: block;
+}
+.showList{
+    display: none !important;
+}
+.showBook{
+    display: none !important;
+}
+
+
+.ion-color-main {
+    --ion-color-base: rgb(144, 61, 96);
+    --ion-color-base-rgb: 144, 61, 96;
+    --ion-color-contrast: #ffffff;
+    --ion-color-contrast-rgb: 255, 255, 255;
+    --ion-color-shade:  rgb(141, 33, 78);
+    --ion-color-tint: rgb(143, 71, 101);
+  }
+
+  
+  .ion-color-mainBtn {
+    --ion-color-base: #ffffff;
+    --ion-color-base-rgb: 255,255,255;
+    --ion-color-contrast: rgb(144, 61, 96);;
+    --ion-color-contrast-rgb: 144, 61, 96;
+    --ion-color-shade:  rgb(131, 29, 72);
+    --ion-color-tint: rgb(143, 71, 101);
+  }

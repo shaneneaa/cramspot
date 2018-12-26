@@ -1,4 +1,4 @@
-<!-- <ion-header >
+<ion-header  [class.show-toolbar]="showToolbar">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -6,11 +6,11 @@
     <ion-title > <ion-img class="logo-title" src="assets/icon/cramspotlogo.png"></ion-img> </ion-title>
     
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 
 
 
-<ion-content >
+<ion-content fullscreen  [scrollEvents]="true" (ionScroll)="onScroll($event)">
   <div class="bg-img"  >
       <br>
       <ion-buttons slot="start" >
@@ -27,14 +27,15 @@
       <br>
   </div>
 
-<ion-segment  color="main">
-  <ion-segment-button value="day" checked>
-      Day Rate 
-  </ion-segment-button>
-  <ion-segment-button value="hour">
-   Hour Rate
-  </ion-segment-button>
-</ion-segment>
+  <ion-segment  color="main"  (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="day" checked>
+        Day Rate 
+    </ion-segment-button>
+    <ion-segment-button value="hour">
+    Hour Rate
+    </ion-segment-button>
+  </ion-segment>
+  
   <ion-card *ngFor="let w of workspaces">
       <ion-img [src]="w.workspace_image"></ion-img>
       <ion-card-header>

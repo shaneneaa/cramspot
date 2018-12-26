@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { HomeModalPage } from "../home-modal/home-modal.page";
 import { WorkspaceService } from '../../services/workspace.service';
 import { NotificationService } from '../../services/notification.service';
+import { ScrollDetail } from '@ionic/core';
 
 
 @Component({
@@ -13,6 +14,7 @@ import { NotificationService } from '../../services/notification.service';
 })
 export class HomePage implements OnInit {
   workspaces;
+  showToolbar = false;
 
   constructor(
     private modalController: ModalController,
@@ -29,6 +31,13 @@ export class HomePage implements OnInit {
     this.workspaceService.getWorkspace().subscribe(data=>{
       this.workspaces = data;
     });
+  }
+
+  onScroll($event: CustomEvent<ScrollDetail>) {
+    if ($event && $event.detail && $event.detail.scrollTop) {
+      const scrollTop = $event.detail.scrollTop;
+      this.showToolbar = scrollTop >=70;
+    }
   }
 
   async success() {
@@ -98,6 +107,8 @@ export class HomePage implements OnInit {
     await alert.present();
     }
 
-
+    segmentChanged(ev: any) {
+      console.log('Segment changed', ev);
+    }
 
 }

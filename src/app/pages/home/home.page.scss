@@ -11,6 +11,17 @@
 
 }
 
+ion-header {
+  display: none;
+}
+
+/* Show background if class is active */
+.show-toolbar {
+  display: block;
+}
+
+
+
 .ion-color-main {
     --ion-color-base: rgb(144, 61, 96);
     --ion-color-base-rgb: 144, 61, 96;
