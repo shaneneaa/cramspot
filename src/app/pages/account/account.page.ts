@@ -67,7 +67,7 @@ export class AccountPage implements OnInit {
         text: 'Logout',
         icon: 'power',
         handler: () => {
-          console.log('Favorite clicked');
+          this.logout();
         }
       }, {
         text: 'Cancel',

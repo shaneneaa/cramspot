@@ -17,6 +17,12 @@ export class WorkspaceService {
   getWorkspace(){
     return this.http.get(Api.URL+'workspace');
   }
+  getWorkspaceByDay(){
+    return this.http.get(Api.URL+'workspaceDay');
+  }
+  getWorkspaceByHour(){
+    return this.http.get(Api.URL+'workspaceHour');
+  }
 
   getWorkspaceById(id){
     return this.http.get(Api.URL+'workspace/'+id);

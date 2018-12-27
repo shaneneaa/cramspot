@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { ScrollDetail } from '@ionic/core';
 
 @Component({
   selector: 'app-how-it-works',
@@ -8,7 +9,16 @@ import { AlertController } from '@ionic/angular';
 })
 export class HowItWorksPage implements OnInit {
 
+  showToolbar = false;
+
   constructor(private alertController: AlertController) { }
+
+  onScroll($event: CustomEvent<ScrollDetail>) {
+    if ($event && $event.detail && $event.detail.scrollTop) {
+      const scrollTop = $event.detail.scrollTop;
+      this.showToolbar = scrollTop >=70;
+    }
+  }
 
   async alertFind() {
     const alert = await this.alertController.create({

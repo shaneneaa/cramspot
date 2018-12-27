@@ -34,3 +34,11 @@
     border: #d8d5d2 solid .5px;   
     border-radius: 8px;
 }
+ion-header {
+  display: none;
+}
+
+/* Show background if class is active */
+.show-toolbar {
+  display: block;
+}

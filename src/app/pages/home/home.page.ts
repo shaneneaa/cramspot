@@ -13,8 +13,12 @@ import { ScrollDetail } from '@ionic/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  workspaces;
+  workspacesByDay;
+  workspacesByHour;
+  ByDay = true;
+  ByHour = false;
   showToolbar = false;
+
 
   constructor(
     private modalController: ModalController,
@@ -24,14 +28,28 @@ export class HomePage implements OnInit {
     ){ }
 
   ngOnInit(){
-    this.loadWorkspace(); 
+    this.loadWorkspaceDay();
+    this.loadWorkspaceHour();
+  }
+  segmentChanged(ev: any) {
+    console.log(this.ByDay, this.ByHour)
+    this.ByDay=!this.ByDay;
+    this.ByHour=!this.ByHour;
   }
 
-  loadWorkspace(){
-    this.workspaceService.getWorkspace().subscribe(data=>{
-      this.workspaces = data;
+  loadWorkspaceDay(){
+    this.workspaceService.getWorkspaceByDay().subscribe(data=>{
+      this.workspacesByDay = data;
     });
   }
+  loadWorkspaceHour(){
+    this.workspaceService.getWorkspaceByHour().subscribe(data=>{
+      this.workspacesByHour = data;
+    });
+  }
+  
+  
+  
 
   onScroll($event: CustomEvent<ScrollDetail>) {
     if ($event && $event.detail && $event.detail.scrollTop) {
@@ -107,8 +125,6 @@ export class HomePage implements OnInit {
     await alert.present();
     }
 
-    segmentChanged(ev: any) {
-      console.log('Segment changed', ev);
-    }
+    
 
 }

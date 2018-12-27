@@ -20,7 +20,12 @@ ion-header {
   display: block;
 }
 
-
+.ByDay{
+  display: none !important;
+}
+.ByHour{
+  display: none !important;
+}
 
 .ion-color-main {
     --ion-color-base: rgb(144, 61, 96);
