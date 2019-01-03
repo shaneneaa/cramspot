@@ -47,8 +47,21 @@ export class NotificationPage implements OnInit {
   }
   async alertConfirm(notification) {
     const alert = await this.alertController.create({
-      header: 'Are you sure you want to book this workspace? This cant be undone.',
-      message: 'If you click confirm it means you read the privacy policy.',
+      header: 'Set your time and date of check in',
+      subHeader: 'Read privacy policy before booking.',
+      message:'This workspace is available at '+ this.datePipe.transform(notification.date_time,'medium'),
+      inputs: [
+        
+        {
+          name: 'date',
+          type: 'date',
+ 
+        },
+        {
+          name: 'time',
+          type: 'time'
+        }
+      ],
       buttons: [
         {
           text: 'Cancel',
@@ -60,11 +73,11 @@ export class NotificationPage implements OnInit {
         }, {
           text: 'Confirm',
           handler: () => {
-            this.notificationService.deleteNotification(notification)
-                .subscribe(data=>{
-                  this.loadData();
+            // this.notificationService.deleteNotification(notification)
+                // .subscribe(data=>{
+                //   this.loadData();
                   this.router.navigateByUrl('/payment');
-                });
+                // });
           }
         }
       ]
@@ -207,7 +220,7 @@ export class NotificationPage implements OnInit {
       const alert = await this.alertController.create({
         header: 'Checking for Availability',
         subHeader: 'Request Sent',
-        message: 'Wait for User Response before check in. Thank you!',
+        message: 'Wait for User Response before check in. Thank you! ',
         buttons: ['OK']
       });
   

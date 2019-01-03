@@ -89,7 +89,6 @@ export class HomePage implements OnInit {
         {
           name: 'date',
           type: 'date',
-          min: '2018-12-01'
  
         },
         {

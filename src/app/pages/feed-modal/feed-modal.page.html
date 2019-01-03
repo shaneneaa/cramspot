@@ -1,8 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/feed"></ion-back-button>
-    </ion-buttons>
+    <a (click)="dismissss()" style="color:black; margin-left:10px; font-size: 20px"><ion-icon name="arrow-round-back"></ion-icon></a>
     <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,14 +10,15 @@
       <ion-item *ngFor="let w of workspaces">
           <ion-grid>
             <ion-row>
-              <ion-col size="4" style="padding:0%;">
+              <ion-col size="6" style="padding:0%;">
                 <ion-img style="padding:0%;" [src]="w.workspace_image"></ion-img>
     
               </ion-col>
-              <ion-col size="8" >
+              <ion-col size="6" >
                 <p style="margin:0%;"> 
-                  <span style="font-weight:bold "> {{ w.type }} <br> ₱ {{ w.rate }}/{{ w.rate_type }}</span> <br>
-                  <ion-icon name="ios-people"></ion-icon> {{ w.capacity }} <br>
+                  <span style="font-weight:bold "> {{ w.type }} for {{ w.capacity }} 
+                    <span *ngIf="w.capacity==1">person</span><span *ngIf="w.capacity>1">People</span>   
+                    <br> ₱ {{ w.rate }}/{{ w.rate_type }}</span> <br>
                   <ion-icon name="ios-laptop"></ion-icon> {{ w.amenities }} <br>
                   <ion-icon name="pin"></ion-icon> {{ w.location_no }} {{ w.location_street }} {{ w.location_barangay }} {{ w.location_province }}
                 </p>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavParams } from '@ionic/angular';
+import { ModalController, NavParams, AlertController } from '@ionic/angular';
 import { WorkspaceService } from '../../services/workspace.service';
 import { AuthenticationService } from '../../services/authentication.service';
 import { NotificationService } from '../../services/notification.service';
@@ -19,7 +19,8 @@ export class FeedModalPage implements OnInit {
     private workspaceService:WorkspaceService,
     private auth:AuthenticationService,
     private params: NavParams,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private alertController: AlertController
     ) { }
 
   ngOnInit() {
@@ -40,14 +41,32 @@ export class FeedModalPage implements OnInit {
 
     this.notificationService.postNotification(notification)
       .subscribe(data=>{
-        //dito mo lagay yung alert
+        
         console.log(data);
       });
+      this.presentAlert();
+      
     
   }
 
   dismissss(){
     this.modalController.dismiss();
+  }
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      subHeader: 'Your workspace suggestion has been sent.',
+      buttons: [
+        {
+          text: 'Okay',
+          handler: () => {
+           this.dismissss();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 }
