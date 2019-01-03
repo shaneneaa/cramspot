@@ -25,9 +25,6 @@ export class AccountPage implements OnInit {
     private alertController: AlertController
     ) { }
 
-
-
-  
   ngOnInit() {
     this.loadData();
   }
@@ -127,8 +124,6 @@ export class AccountPage implements OnInit {
         role: 'destructive',
         icon: 'Trash',
         handler: () => {
-          
-
           this.workspaceService.deleteWorkspace(workspace)
             .subscribe(data=>{
               this.loadData();

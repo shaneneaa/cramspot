@@ -32,7 +32,7 @@ export class WorkspaceService {
   }
 
   deleteWorkspace(workspace){
-    return this.http.request('delete',Api.URL+'/workspace/',{
+    return this.http.request('delete',Api.URL+'workspace',{
       headers: new HttpHeaders({
           'Content-Type': 'application/json'
       }),
