@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { ActionSheetController } from '@ionic/angular';
+import { ActionSheetController, AlertController } from '@ionic/angular';
 import { ScrollDetail } from '@ionic/core';
 import { WorkspaceService } from 'src/app/services/workspace.service';
 
@@ -16,21 +16,54 @@ export class AccountPage implements OnInit {
   showToolbar = false;
   showList = true;
   showBook = false;
+  workspace_id;
 
   constructor(
     private auth: AuthenticationService,
-    public actionSheetController: ActionSheetController,
-    private workspaceService:WorkspaceService
+    private actionSheetController: ActionSheetController,
+    private workspaceService:WorkspaceService,
+    private alertController: AlertController
     ) { }
 
 
 
   
   ngOnInit() {
+    this.loadData();
+  }
+
+  loadData(){
     this.workspaceService.getWorkspaceByUserId(this.auth.getDecodedToken().user_id)
     .subscribe(data=>{
       this.workspaces = data;
     });
+  }
+
+  async deleteAlert(workspace) {
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      message: 'Are you sure you really want to delete this workspace?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'OK',
+          handler: () => {
+            this.workspaceService.deleteWorkspace(workspace)
+            .subscribe(data=>{
+              this.loadData();
+            });
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
     segmentChanged(ev: any) {
@@ -81,7 +114,7 @@ export class AccountPage implements OnInit {
     await actionSheet.present();
   }
 
-  async more() {
+  async more(workspace) {
     const actionSheet = await this.actionSheetController.create({
       header: 'Option',
       buttons: [{
@@ -94,6 +127,12 @@ export class AccountPage implements OnInit {
         role: 'destructive',
         icon: 'Trash',
         handler: () => {
+          
+
+          this.workspaceService.deleteWorkspace(workspace)
+            .subscribe(data=>{
+              this.loadData();
+            });
         }
       }, {
         text: 'Cancel',

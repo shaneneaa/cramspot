@@ -42,6 +42,33 @@ export class NotificationPage implements OnInit {
         console.log(data);
       });
   }
+  async alertConfirm(notification) {
+    const alert = await this.alertController.create({
+      header: 'Are you sure you want to book this workspace? This cant be undone.',
+      message: 'If you click confirm it means you read the privacy policy.',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancel: blah');
+          }
+        }, {
+          text: 'Confirm',
+          handler: () => {
+            this.notificationService.deleteNotification(notification)
+                .subscribe(data=>{
+                  this.loadData();
+                  this.router.navigateByUrl('/payment');
+                });
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
 
   alertAvailability(notification) {
     if(notification.type == 1){
@@ -92,11 +119,7 @@ export class NotificationPage implements OnInit {
           {
             text: 'Book',
             handler: () => {
-              this.notificationService.deleteNotification(notification)
-                .subscribe(data=>{
-                  this.loadData();
-                  this.router.navigateByUrl('/payment');
-                });
+              this.alertConfirm(notification);
             }
           }
         ]

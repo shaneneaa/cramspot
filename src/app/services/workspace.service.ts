@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Api } from '../entities/api.class';
 import { Observable } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -30,6 +29,14 @@ export class WorkspaceService {
 
   getWorkspaceByUserId(id):Observable<any[]>{
     return this.http.get<any[]>(Api.URL+'workspace/user/'+id);
+  }
+
+  deleteWorkspace(workspace){
+    return this.http.request('delete',Api.URL+'/workspace/',{
+      headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+      }),
+      body: workspace});
   }
   
 }

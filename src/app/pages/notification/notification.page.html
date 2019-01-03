@@ -12,10 +12,10 @@
         <ion-item  (click)="alertAvailability(n)">
             <ion-label text-wrap>
                 <h2 style="font-weight:bold">
-                  <span *ngIf="n.type==1"> Verify your workspace availability </span>
-                  <span *ngIf="n.type==2"> Your request for availability has been acknowledge</span>
+                  <span *ngIf="n.type==1"> Someone is checking your workspace if it's available at {{n.date_time}}</span>
+                  <span *ngIf="n.type==2"> Your request for workspace availability has been verified</span>
                   <span *ngIf="n.type==3"> You have new suggested a workspace</span></h2>
-                  <p>{{ n?.date_created}} </p>
+                  <p>{{ n.date_created}} </p>
                 <p style="color:#903d62; text-align: end" (click)="alertAvailability(n)">
                     <span *ngIf="n.type==1"> Response </span>
                     <span *ngIf="n.type==2"> View</span>
