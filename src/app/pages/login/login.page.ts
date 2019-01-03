@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { Api } from '../../entities/api.class';
 import { tokenKey } from '@angular/core/src/view';
 import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
 
 
 @Component({
@@ -18,11 +19,12 @@ export class LoginPage implements OnInit {
 
   constructor(
     private auth: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private menuController: MenuController
     ) { }
 
   ngOnInit() {
-
+    this.menuController.enable(false);
   }
 
   onSubmit(f:NgForm){

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, MenuController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { HomeModalPage } from "../home-modal/home-modal.page";
 import { WorkspaceService } from '../../services/workspace.service';
@@ -24,10 +24,12 @@ export class HomePage implements OnInit {
     private modalController: ModalController,
     private alertController: AlertController,
     private workspaceService: WorkspaceService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private menuController: MenuController
     ){ }
 
   ngOnInit(){
+    this.menuController.enable(true);
     this.loadWorkspaceDay();
     this.loadWorkspaceHour();
   }
