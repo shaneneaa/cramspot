@@ -19,7 +19,7 @@
       <ion-item  (click)="presentModal(f)">
           <ion-label >
               <h2 style="font-weight:bold">{{ f?.message }}</h2>
-              <p >{{ f?.date_added}} </p> 
+              <p >{{ f?.date_added | date:'medium'}} </p> 
               <p style="color:#903d62; text-align: end" (click)="presentModal(f)">Suggest <ion-icon name="play"></ion-icon></p> 
             </ion-label>
       </ion-item>
