@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class NotificationPage implements OnInit {
 
+  
   notifications;
 
   constructor(
@@ -29,7 +30,9 @@ export class NotificationPage implements OnInit {
 
   loadData(){
     this.notificationService.fetchNotification()
+    
       .subscribe(data=>{
+        
 
         data.map(notif=>{
           this.workspaceService.getWorkspaceById(notif.workspace_id)
@@ -112,7 +115,7 @@ export class NotificationPage implements OnInit {
         buttons: [
            {
             text: 'Book later',
-            handler: (blah) => {
+            handler: () => {
               console.log('Confirm Cancel: blah');
             }
           },
@@ -202,7 +205,7 @@ export class NotificationPage implements OnInit {
 
     async success() {
       const alert = await this.alertController.create({
-        header: 'Check Availability',
+        header: 'Checking for Availability',
         subHeader: 'Request Sent',
         message: 'Wait for User Response before check in. Thank you!',
         buttons: ['OK']
