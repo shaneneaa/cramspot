@@ -32,5 +32,8 @@ export class NotificationService {
       }),
       body: notification});
   }
+  getNotificationById(id){
+    return this.http.get(Api.URL+'notification/'+id);
+  }
 
 }

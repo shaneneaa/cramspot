@@ -74,9 +74,9 @@ export class NotificationPage implements OnInit {
           text: 'Confirm',
           handler: () => {
             // this.notificationService.deleteNotification(notification)
-                // .subscribe(data=>{
-                //   this.loadData();
-                  this.router.navigateByUrl('/payment');
+            //     .subscribe(data=>{
+            //       this.loadData();
+                  this.router.navigate(['/payment',notification.notification_id]);
                 // });
           }
         }

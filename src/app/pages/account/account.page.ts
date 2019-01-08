@@ -17,6 +17,8 @@ export class AccountPage implements OnInit {
   showList = true;
   showBook = false;
   workspace_id;
+  name:string;
+  email:string;
 
   constructor(
     private auth: AuthenticationService,
@@ -27,6 +29,8 @@ export class AccountPage implements OnInit {
 
   ngOnInit() {
     this.loadData();
+    this.name = this.auth.getDecodedToken().firstname+" "+this.auth.getDecodedToken().lastname;
+    this.email = this.auth.getDecodedToken().email;
   }
 
   loadData(){

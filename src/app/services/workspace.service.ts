@@ -38,5 +38,9 @@ export class WorkspaceService {
       }),
       body: workspace});
   }
+
+  postBookedWorkspace(booking){
+    return this.http.post(Api.URL+"workspace/book",booking);
+  }
   
 }

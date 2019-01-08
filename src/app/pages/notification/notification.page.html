@@ -16,7 +16,7 @@
                   <span *ngIf="n.type==2"> Your request for workspace availability has been verified</span>
                   <span *ngIf="n.type==3"> You have new suggested a workspace</span></h2>
                   <p>{{ n?.date_created | date: 'medium'}} </p>
-                <p style="color:#903d62; text-align: end" (click)="alertAvailability(n)">
+                <p style="color:#903d62; text-align: end">
                     <span *ngIf="n.type==1"> Response </span>
                     <span *ngIf="n.type==2"> View</span>
                     <span *ngIf="n.type==3"> View</span>
