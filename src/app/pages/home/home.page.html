@@ -18,7 +18,7 @@
       </ion-buttons>
       <br>
       <h1 text-center style="color:white; font-weight:700" >Find your new <br> Cramspot</h1>
-      <p text-center style="color:#eeeeee; font-size: 1.2rem">Check out a thousands of study area and workspaces.</p>
+      <p text-center style="color:#eeeeee; font-size: 1.2rem">Check out a hundred of study area and workspaces.</p>
 
       <ion-searchbar mode="ios" placeholder="Search Location" color="light"></ion-searchbar>
       <br>
@@ -45,10 +45,9 @@
         <ion-card-content>
             <p>
               {{ wd.type }} <br>
-              <ion-icon name="ios-people"></ion-icon> {{ wd.capacity }} people<br>
-              <ion-icon name="ios-laptop"></ion-icon> {{ wd.amenities }} <br>
-              <ion-icon name="ios-pin"></ion-icon> {{ wd.location_no }} {{wd.location_street}} 
-                {{ wd.location_barangay }} {{wd.location_city}} {{wd.location_province}}
+              <ion-icon name="ios-people"></ion-icon> {{ wd.capacity }} people 
+              <ion-icon name="ios-laptop"> </ion-icon> {{ wd.amenities }} <br>
+              <ion-icon name="ios-pin"></ion-icon> {{wd.location_city}}, {{wd.location_province}}
             </p>
             <ion-button color="main" size="small" fill="clear" (click)="checkAvailability(wd.user_id,wd.space_id)">check Availability</ion-button>
             
@@ -79,9 +78,9 @@
 
 </ion-content>
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+<!-- <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
   <ion-fab-button color="main" (click)="presentModal()">
     <ion-icon name="add"></ion-icon>
   </ion-fab-button>
-</ion-fab>
+</ion-fab> -->
 

@@ -1,0 +1,190 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+      </ion-toolbar>
+        
+</ion-header>
+
+<ion-content >
+  <ion-card style="background-color:#f4fafc;">
+      <ion-card-header>
+          <ion-card-title>Post New Workspace</ion-card-title>
+          <ion-card-subtitle style="font-family:cursive;">Cramspot helps to manage and monetize your unused rooms, offices and desks...</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <form #f="ngForm" (ngSubmit)="post(f)">
+         
+            <ion-label position="stacked">Cramspot Name</ion-label>
+            <ion-item class="input-style">
+              <ion-input name="title" ngModel placeholder="Enter your Cramspot's name"></ion-input>
+            </ion-item>
+            <br>
+            <ion-label position="stacked">Description</ion-label>
+            <ion-item class="input-style">
+              <ion-textarea name="description" ngModel placeholder="Type something about your cramspot..."></ion-textarea>
+            </ion-item>   
+            <br>
+            <ion-label position="stacked">Workspace Type</ion-label>
+            <ion-item class="input-style">
+                <ion-select interface="popover" name="type" ngModel placeholder="Select One">
+                    <ion-select-option value="Coworking Space">Coworking Space</ion-select-option>
+                    <ion-select-option value="Corporate Office">Corporate Office</ion-select-option>
+                    <ion-select-option value="Startup Office">Startup Office</ion-select-option>
+                    <ion-select-option value="Empty Room">Empty Room</ion-select-option>
+                  </ion-select>
+            </ion-item>   
+            <br>
+            <ion-label position="stacked">Rate</ion-label>
+            <ion-grid style="padding:0%;">
+                <ion-row>
+                  <ion-col size="5" style="padding:0%;"> 
+                    <ion-item class="input-style">
+                      <ion-input type="number" name="rate" ngModel clearInput placeholder="E.g.300"></ion-input>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="7" style="padding:0%;"> 
+                    <ion-item class="input-style">
+                        <ion-select name="rate_type" ngModel interface="popover" placeholder="/Hr">
+                          <ion-select-option value="hour">Hour</ion-select-option>
+                          <ion-select-option value="day">Day</ion-select-option>
+                        </ion-select>
+                      </ion-item>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <br>
+              <ion-label position="stacked">Number of desk</ion-label>
+              <ion-item class="input-style">
+                <ion-input name="desk_quantity" ngModel placeholder="E.g. 5" type="number"></ion-input>
+              </ion-item>   
+              <br>
+            <ion-label position="stacked">Capacity per desk</ion-label>
+            <ion-item class="input-style">
+              <ion-input name="capacity" ngModel placeholder="E.g. 5" type="number"></ion-input>
+            </ion-item>   
+            <br>
+            <ion-label position="stacked">Amenities</ion-label>
+            <ion-item class="input-style">
+                <ion-input name="amenities" ngModel clearInput placeholder="( E.g. Computer, Wifi, books)"></ion-input>
+            </ion-item>   
+            <br>
+            <ion-label position="stacked">Location</ion-label>
+            <ion-item class="input-style">
+                <ion-grid style="padding:0%;">
+                    <ion-row>
+                      <ion-col size="6" style="padding:0%;"> 
+                        <ion-item>
+                          <ion-input name="location_no" ngModel  placeholder="Unit#." style="padding:0%;"></ion-input>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col size="6" style="padding:0%;"> 
+                          <ion-item>
+                            <ion-input name="location_street" ngModel clearInput placeholder="Street"></ion-input>
+                          </ion-item>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col size="6" style="padding:0%;"> 
+                        <ion-item>
+                          <ion-input name="location_barangay" ngModel clearInput placeholder="Barangay" style="padding:0%;"></ion-input>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col size="6" style="padding:0%;"> 
+                          <ion-item>
+                            <ion-input  name="location_city" ngModel  clearInput placeholder="City"></ion-input>
+                          </ion-item>
+                      </ion-col>
+                      <ion-col size="12" style="padding:0%;"> 
+                        <ion-item>
+                          <ion-input name="location_province" ngModel  clearInput placeholder="Province"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                    </ion-row>
+                  </ion-grid>
+            </ion-item>   
+            <br>
+            <ion-label position="stacked">Upload Image</ion-label>
+                <p text-center> 
+                    <ion-img  (click)="imageupload.click()" style="margin:auto; width:110px;" [src]="previewImage"></ion-img>
+                </p>
+                <input type="file" #imageupload (change)="onChangeImage($event)" style="visibility:hidden;">
+              <br>
+              <p position="stacked" text-center style="color:black">Opening Hours</p>
+              <ion-grid class="input-style">
+                <ion-row>
+                  <ion-col size="2">Days</ion-col>
+                  <ion-col size="1"></ion-col>
+                  <ion-col size="4">Opening Time</ion-col>
+                  <ion-col size="1"></ion-col>
+                  <ion-col size="4">Closing Time</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="2">Mon</ion-col>
+                    <ion-col size="1"><ion-checkbox color="light"></ion-checkbox></ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                    <ion-col size="1" text-center> to</ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="2">Tue</ion-col>
+                    <ion-col size="1"><ion-checkbox color="light"></ion-checkbox></ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                    <ion-col size="1" text-center> to</ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="2">Wed</ion-col>
+                    <ion-col size="1"><ion-checkbox color="light"></ion-checkbox></ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                    <ion-col size="1" text-center> to</ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="2">Thu</ion-col>
+                    <ion-col size="1"><ion-checkbox color="light"></ion-checkbox></ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                    <ion-col size="1" text-center> to</ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="2">Fri</ion-col>
+                    <ion-col size="1"><ion-checkbox color="light"></ion-checkbox></ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                    <ion-col size="1" text-center> to</ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="2">Sat</ion-col>
+                    <ion-col size="1"><ion-checkbox color="light"></ion-checkbox></ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                    <ion-col size="1" text-center> to</ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="2">Sun</ion-col>
+                    <ion-col size="1"><ion-checkbox color="light"></ion-checkbox></ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                    <ion-col size="1" text-center> to</ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                </ion-row>
+              </ion-grid>
+              <br>
+
+            
+            <div padding>
+                <ion-button  type="submit" color="main" expand="block"  shape="round">Post</ion-button>
+                <p text-center>
+                  <a style="color: rgb(144, 61, 96); text-decoration: none" defaultHref="/home" >Cancel</a>
+                </p> 
+              </div>
+        </form>
+      </ion-card-content>
+  </ion-card>
+  
+    
+    
+    
+</ion-content>

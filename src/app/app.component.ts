@@ -17,9 +17,14 @@ export class AppComponent {
       icon: 'person'
     },
     {
-      title: 'Browse workspace',
+      title: 'Browse cramspot',
       url: '/home',
       icon: 'search'
+    },
+    {
+      title: 'List your space',
+      url: '/list-workspace',
+      icon: 'add-circle'
     },
     {
       title: 'Feed',
