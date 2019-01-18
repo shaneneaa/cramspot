@@ -6,12 +6,12 @@
         <br>
     <ion-label position="stacked">First Name</ion-label>
     <ion-item class="input-style"> 
-        <ion-input clearInput ngModel name="firstname" required></ion-input>
+        <ion-input clearInput ngModel type="text" name="firstname" required></ion-input>
     </ion-item>   
     <br>
     <ion-label position="stacked">Last Name</ion-label>
     <ion-item class="input-style">
-        <ion-input clearInput ngModel name="lastname" ></ion-input>
+        <ion-input clearInput ngModel type="text" name="lastname" ></ion-input>
     </ion-item>   
     <br>
     <ion-label position="stacked">Contact No.</ion-label>
@@ -27,6 +27,11 @@
     <ion-label position="stacked">Password</ion-label>
     <ion-item class="input-style">
        <ion-input clearInput type="password" ngModel name="password" ></ion-input>
+    </ion-item>
+    <br>
+    <ion-label position="stacked">Retype Password</ion-label>
+    <ion-item class="input-style">
+       <ion-input clearInput type="password" [(ngModel)]="pass2" [ngModelOptions]="{standalone: true}"></ion-input>
     </ion-item>   
     <br>
     

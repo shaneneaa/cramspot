@@ -5,6 +5,7 @@ import { HomeModalPage } from "../home-modal/home-modal.page";
 import { WorkspaceService } from '../../services/workspace.service';
 import { NotificationService } from '../../services/notification.service';
 import { ScrollDetail } from '@ionic/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -25,7 +26,8 @@ export class HomePage implements OnInit {
     private alertController: AlertController,
     private workspaceService: WorkspaceService,
     private notificationService: NotificationService,
-    private menuController: MenuController
+    private menuController: MenuController,
+    private router: Router
     ){ }
 
   ngOnInit(){
@@ -48,6 +50,11 @@ export class HomePage implements OnInit {
     this.workspaceService.getWorkspaceByHour().subscribe(data=>{
       this.workspacesByHour = data;
     });
+  }
+  viewDetails(workspacesByDay){
+    this.router.navigate(['/space-details',workspacesByDay.space_id]);
+    console.log(workspacesByDay);
+    
   }
   
   

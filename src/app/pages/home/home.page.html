@@ -36,8 +36,8 @@
     </ion-segment-button>
   </ion-segment>
   
-  <div  [class.ByDay]="ByDay">
-    <ion-card *ngFor="let wd of workspacesByDay" >
+  <div  [class.ByDay]="ByDay" >
+    <ion-card *ngFor="let wd of workspacesByDay" (click)="viewDetails(wd);">
         <ion-img [src]="wd.workspace_image"></ion-img>
         <ion-card-header>
             <ion-card-title>₱ <span>{{ wd.rate }} / {{ wd.rate_type }}</span></ion-card-title>

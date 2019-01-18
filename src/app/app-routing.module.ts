@@ -20,7 +20,8 @@ const routes: Routes = [
   { path: 'privacy-policy', loadChildren: './other-pages/privacy-policy/privacy-policy.module#PrivacyPolicyPageModule', canActivate: [AuthGuard] },
   { path: 'contactus', loadChildren: './other-pages/contactus/contactus.module#ContactusPageModule', canActivate: [AuthGuard] },
   { path: 'reservation-details', loadChildren: './pages/reservation-details/reservation-details.module#ReservationDetailsPageModule' },  { path: 'list-workspace', loadChildren: './pages/list-workspace/list-workspace.module#ListWorkspacePageModule' },
-  { path: 'space-details', loadChildren: './pages/space-details/space-details.module#SpaceDetailsPageModule' }
+  { path: 'space-details', loadChildren: './pages/space-details/space-details.module#SpaceDetailsPageModule' },
+  { path: 'edit-profile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfilePageModule' }
 
 
 
