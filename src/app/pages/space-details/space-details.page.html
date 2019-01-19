@@ -8,23 +8,23 @@
 </ion-header>
 
 <ion-content>
-  <ion-img src="https://images.steelcase.com/image/upload/c_fill,dpr_auto,q_70,h_656,w_1166/v1432747782/www.steelcase.com/Tour.jpg"></ion-img>
+  <ion-img src="{{workspace?.workspace_image}}"></ion-img>
  
   <div padding>
       <div style=" border-bottom:.5px lightgray solid;">
-        <h1 class="padding" style="font-weight:bold "> Space Name</h1>
-        <h5>₱ <span>120</span>/ <span>day</span></h5>
-        <p class="padding"> This is a sample description of a Workspace.</p>
-        <p><ion-icon name="people"></ion-icon> 5 people</p>
-        <p><ion-icon name="cube"></ion-icon> 3 desk</p>
+        <h1 class="padding" style="font-weight:bold "> {{workspace?.title}}</h1>
+        <h5>{{workspace?.type}}  ₱ <span>{{workspace?.rate}}</span>/<span>{{workspace?.rate_type}}</span></h5>
+        <p class="padding"> {{workspace?.description}}</p>
+        <p><ion-icon name="people"></ion-icon>{{workspace?.capacity}} people/desk</p>
+        <p><ion-icon name="cube"></ion-icon> {{workspace?.desk_quantity}} available desk</p>
       </div>
       <div Text-Capitalize style="border-bottom:.5px lightgray solid; ">
           <h5 class="padding"> Amenities</h5>
-          <p>wifi, computer, coffee</p>
+          <p>{{workspace?.amenities}}</p>
       </div>
       <div Text-Capitalize style="border-bottom:.5px lightgray solid; ">
           <h5 class="padding"> The Location</h5>
-          <p>Olongapo City, Zambales</p>
+          <p>{{workspace?.location_city}}, {{workspace?.location_province}}</p>
           <p style="font-size:12px;color:#903d62">Exact location provided after booking</p>
       </div>
 

@@ -42,6 +42,7 @@ export class HomePage implements OnInit {
   }
 
   loadWorkspaceDay(){
+   
     this.workspaceService.getWorkspaceByDay().subscribe(data=>{
       this.workspacesByDay = data;
     });
@@ -51,9 +52,9 @@ export class HomePage implements OnInit {
       this.workspacesByHour = data;
     });
   }
-  viewDetails(workspacesByDay){
-    this.router.navigate(['/space-details',workspacesByDay.space_id]);
-    console.log(workspacesByDay);
+  viewDetails(workspace){
+    this.router.navigate(['/space-details',workspace.space_id]);
+   
     
   }
   
