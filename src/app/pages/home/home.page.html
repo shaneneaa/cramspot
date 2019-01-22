@@ -10,7 +10,7 @@
 
 
 
-<ion-content fullscreen  [scrollEvents]="true" (ionScroll)="onScroll($event)">
+<ion-content fullscreen  [scrollEvents]="true" (ionScroll)="onScroll($event)" Text-Capitalize>
   <div class="bg-img"  >
       <br>
       <ion-buttons slot="start" >
@@ -45,8 +45,8 @@
         <ion-card-content>
             <p>
               {{ wd.type }} <br>
-              <ion-icon name="ios-people"></ion-icon> {{ wd.capacity }} people 
-              <ion-icon name="ios-laptop"> </ion-icon> {{ wd.amenities }} <br>
+              <ion-icon name="ios-people"></ion-icon> {{ wd.capacity }} people <br>
+              <ion-icon name="ios-cafe"> </ion-icon> {{ wd.amenities }} <br>
               <ion-icon name="ios-pin"></ion-icon> {{wd.location_city}}, {{wd.location_province}}
             </p>
             <ion-button color="main" size="small" fill="clear" (click)="checkAvailability(wd.user_id,wd.space_id)">check Availability</ion-button>
@@ -56,7 +56,7 @@
   </div>
   
   <div  [class.ByHour]="ByHour">
-    <ion-card *ngFor="let wr of workspacesByHour" >
+    <ion-card *ngFor="let wr of workspacesByHour"  (click)="viewDetails(wr);">
       <ion-img [src]="wr.workspace_image"></ion-img>
       <ion-card-header>
           <ion-card-title>₱ <span>{{ wr.rate }} / {{ wr.rate_type }}</span></ion-card-title>
@@ -65,9 +65,8 @@
           <p>
             {{ wr.type }} <br>
             <ion-icon name="ios-people"></ion-icon> {{ wr.capacity }} people<br>
-            <ion-icon name="ios-laptop"></ion-icon> {{ wr.amenities }} <br>
-            <ion-icon name="ios-pin"></ion-icon> {{ wr.location_no }} {{wr.location_street}} 
-             {{ wr.location_barangay }} {{wr.location_city}} {{wr.location_province}}
+            <ion-icon name="ios-cafe"></ion-icon> {{ wr.amenities }} <br>
+            <ion-icon name="ios-pin"></ion-icon> {{wr.location_city}}, {{wr.location_province}}
           </p>
           <ion-button color="main" size="small" fill="clear" (click)="checkAvailability(wr.user_id,wr.space_id)">check Availability</ion-button>
           

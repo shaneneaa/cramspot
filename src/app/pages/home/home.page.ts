@@ -36,7 +36,6 @@ export class HomePage implements OnInit {
     this.loadWorkspaceHour();
   }
   segmentChanged(ev: any) {
-    console.log(this.ByDay, this.ByHour)
     this.ByDay=!this.ByDay;
     this.ByHour=!this.ByHour;
   }
