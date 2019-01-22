@@ -78,6 +78,26 @@ export class ListWorkspacePage implements OnInit {
       this.h=true; this.g=false; this.h=true;
     }
   }
+
+  async alertBack() {
+    const alert = await this.alertController.create({
+      header: `You haven't post your workspace yet`,
+      message: 'Are you sure you want to go back to home?',
+      buttons: [
+        {
+          text: 'Cancel'
+        },
+        {
+          text: 'Okay',
+          handler: () => {
+            this.router.navigateByUrl('/home');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
   async postAlert() {
     const alert = await this.alertController.create({
       header: 'Success',
