@@ -138,10 +138,15 @@ export class ListWorkspacePage implements OnInit {
     this.previewImage = URL.createObjectURL(event.target.files[0]);
   }
 
+  async openingHoursSubmit(f){
+    console.log(f.value);
+  }
+
   post(f:NgForm){
     //attach form value to form data
      this.workspace= f.value;
      console.log(this.workspace);
+     return;
      if(this.workspace.title==""){
       this.requiredAlert("Title","a");
 

@@ -249,7 +249,7 @@
             <br>
             <br>
           </div>
-          <div  [class.h]="h">
+          <div [class.h]="h">
               <ion-button fill="clear"  (click)="prev('g')" style="color:black; ">
                   <ion-icon name="arrow-round-back"></ion-icon>
                   Back
@@ -270,9 +270,9 @@
                 <ion-row>
                     <ion-col size="2">Mon</ion-col>
                     <ion-col size="1"><ion-checkbox color="light"></ion-checkbox></ion-col>
-                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time" ngModel name="mon-in" ></ion-input></ion-col>
                     <ion-col size="1" text-center> to</ion-col>
-                    <ion-col size="4" text-center> <ion-input type="time"></ion-input></ion-col>
+                    <ion-col size="4" text-center> <ion-input type="time" ngModel name="mon-out" ></ion-input></ion-col>
                 </ion-row>
                 <ion-row>
                     <ion-col size="2">Tue</ion-col>
